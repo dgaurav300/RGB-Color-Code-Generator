@@ -50,6 +50,10 @@
         h1{
             color: white;
         }
+        span#copy{
+            float: right;
+            cursor: pointer;
+        }
     </style>
 
 </head>
@@ -73,10 +77,18 @@
         let colorCode=`rgb(${red},${green},${blue})`;
         let body=document.body;
         body.style.backgroundColor=colorCode;
-        document.getElementById("colorCode").innerHTML=colorCode;
+        document.getElementById("colorCode").innerHTML=colorCode+"<span id='copy' onclick='copy()'>&#x2398;</span>";
         
          
         
+     }
+     function copy(){
+        let red = document.getElementById("red").value;
+        let green=document.getElementById("green").value;
+        let blue=document.getElementById("blue").value;
+        let colorCode=`rgb(${red},${green},${blue})`;
+        navigator.clipboard.writeText(colorCode);
+        alert("Color Code Copy Successfully")
      }
      colorGenerator();
    </script>
