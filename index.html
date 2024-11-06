@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            gap: 30px;
+        }
+        h3{
+            text-align: center;
+            color: white;
+            background-color: black;
+            box-shadow: 4px 5px white,-4px -5px white;
+        }
+        span.red{
+            text-align: center;
+            color: white;
+            background-color: red;
+            box-shadow: 4px 5px white,-4px -5px white;
+        }
+        span.green{
+            text-align: center;
+            color: white;
+            background-color: green;
+            box-shadow: 4px 5px white,-4px -5px white;
+        }
+        span.blue{
+            text-align: center;
+            color: white;
+            background-color: blue;
+            box-shadow: 4px 5px white,-4px -5px white;
+        }
+        span{
+            max-width: 100px;
+        }
+        h1{
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+   <div class="container">
+    <h1>RGB Color Code Gernerator</h1>
+     <span class="red">Red</span> 
+     <input title="RED" type="range" min="0" value="0" onchange="colorGenerator()" max="255"  id="red">
+     <span class="green">Green</span> 
+     <input  type="range" min="0" value="0" onchange="colorGenerator()" max="255"  id="green">
+     <span class="blue">Blue</span> 
+     <input type="range" min="0" value="0" onchange="colorGenerator()" max="255"  id="blue">
+     <h3 id="colorCode">rgb(0,0,0)</h3>
+   </div>
+
+   <script>
+     function colorGenerator(){
+        let red = document.getElementById("red").value;
+        let green=document.getElementById("green").value;
+        let blue=document.getElementById("blue").value;
+        let colorCode=`rgb(${red},${green},${blue})`;
+        let body=document.body;
+        body.style.backgroundColor=colorCode;
+        document.getElementById("colorCode").innerHTML=colorCode;
+        
+         
+        
+     }
+     colorGenerator();
+   </script>
+
+</body>
+</html>
